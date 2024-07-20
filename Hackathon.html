@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Walk Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "Hackathon.css">
+    <script src="Hackathon.js"></script>
+    <link rel="href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <h1>Walk Planner</h1>
+</head>
+<body>
+    <form id="addressForm" onsubmit="return addressForm()">
+    <label for="address1">First Address:</label><br>
+    <input type="text" id="address1" name="address1"><br><br>
+
+    <label for="address2">Second Address:</label><br>
+    <input type="text" id="address2" name="address2"><br><br>
+
+    <input type="submit" value="Submit">
+</form> 
+
+    <div id="map" style="height: 400px;"></div>
+    
+  
+</body>
+</html>
