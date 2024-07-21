@@ -1,32 +1,64 @@
-coords1 = [];
-coords2 = [];
-//My personal API Key, in deployment this would be removed
 const apiKey = 'eoa2vtgM9O5GnX7Nth3H9CruvBRaQeYdzuWp-Dc8JDg';
+
 function addressForm() {
     const address1 = document.getElementById("address1").value;
     const address2 = document.getElementById("address2").value;
 
-    let coords1, coords2;
-
     geocodeAddress(address1)
         .then(result => {
-            coords1 = result;
+            const coords1 = result;
             console.log('Coordinates for address 1:', coords1);
-            // Call generateMap with coords1
-            return geocodeAddress(address2);
+            return geocodeAddress(address2).then(coords2 => {
+                console.log('Coordinates for address 2:', coords2);
+                generateMap(coords1, coords2);
+                return calculateWalkingDistance(coords1, coords2);
+            });
         })
-        .then(result => {
-            coords2 = result;
-            console.log('Coordinates for address 2:', coords2);
-            generateMap(coords1, coords2);
-            // Optionally handle coords2 if needed
+        .then(dist => {
+            console.log('Walking distance:', dist, 'meters');
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select the container element by its ID
+                let dist_container = document.getElementById("container");
+
+                if (dist_container) {
+                    dist_container.innerText = dist + ' meters';
+                } else {
+                    console.error("Container element not found");
+                }
+            });
         })
         .catch(error => {
             console.error('Error:', error);
         });
 }
 
-function generateMap(coords, coords1) {
+function calculateWalkingDistance(coords1, coords2) {
+    const url = `https://router.hereapi.com/v8/routes?transportMode=pedestrian&origin=${coords1[0]},${coords1[1]}&destination=${coords2[0]},${coords2[1]}&return=summary&apikey=${apiKey}`;
+
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Routing request failed');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.routes.length > 0) {
+                const route = data.routes[0];
+                const distance = route.sections[0].summary.length;
+                console.log('Walking distance:', distance, 'meters');
+                return distance;
+            } else {
+                throw new Error('No routes found');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching route:', error);
+            throw error;
+        });
+}
+
+function generateMap(coords1, coords2) {
     const mapContainer = document.getElementById('mapContainer');
     if (!mapContainer) {
         console.error('Map container element not found');
@@ -46,8 +78,8 @@ function generateMap(coords, coords1) {
         mapContainer,
         defaultLayers.vector.normal.map,
         {
-            center: { lat: coords[0], lng: coords[1] },
-            zoom: 12,
+            center: { lat: coords1[0], lng: coords1[1] },
+            zoom: 15,
             pixelRatio: window.devicePixelRatio || 1
         }
     );
@@ -57,11 +89,11 @@ function generateMap(coords, coords1) {
     const behavior = new H.mapevents.Behavior(mapEvents);
     const ui = H.ui.UI.createDefault(map, defaultLayers);
 
-    // Example: Add a marker for the address
-    const marker = new H.map.Marker({ lat: coords[0], lng: coords[1] });
+    // Add markers for the addresses
     const marker1 = new H.map.Marker({ lat: coords1[0], lng: coords1[1] });
-    map.addObject(marker);
+    const marker2 = new H.map.Marker({ lat: coords2[0], lng: coords2[1] });
     map.addObject(marker1);
+    map.addObject(marker2);
 }
 
 function geocodeAddress(address) {
