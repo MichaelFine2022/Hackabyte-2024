@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <title>Walk Planner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "Hackathon.css">
-    <script src="Hackathon.js"></script>
-    <link rel="href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <h1>Walk Planner</h1>
+    <link rel="stylesheet" href="Hackathon.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-geometry.js"></script>
 </head>
 <body>
-    <form id="addressForm" onsubmit="return addressForm()">
-    <label for="address1">First Address:</label><br>
-    <input type="text" id="address1" name="address1"><br><br>
+    <header>
+        <h1>Walk Planner</h1>
+    </header>
+    <nav class="top-nav">
+        <button id="toggleDirectionsMenuButton">Directions</button>
+        <button id="toggleTimerButton">Timer</button>
+    </nav>
+    <main>
+        <form id="addressForm">
+            <label for="address1">First Address:</label><br>
+            <input type="text" id="address1" name="address1"><br><br>
+            <label for="address2">Second Address:</label><br>
+            <input type="text" id="address2" name="address2"><br><br>
+            <label for="weight">Your Weight (lbs):</label><br>
+            <input type="number" id="weight" name="weight" min="0"><br><br>
+            <button type="button" id="calculateDistanceButton">Calculate Distance</button>
+        </form>
+        <div id="mapContainer"></div>
+        <div id="container"><p>Walking distance in meters will be displayed here.</p></div>
+        <div id="containerI"><p>Walking distance in feet will be displayed here.</p></div>
+        <div id="caloriesBurnedContainer"><p>Calories burned will be displayed here.</p></div>
+    </main>
+    <div id="sideMenu" class="menu">
+        <button id="closeDirectionsButton">Close Directions</button>
+        <div id="directionsContainer"><ul id="directionsList"></ul></div>
+    </div>
 
-    <label for="address2">Second Address:</label><br>
-    <input type="text" id="address2" name="address2"><br><br>
-
-    <input type="submit" value="Submit">
-</form> 
-
-    <div id="map" style="height: 400px;"></div>
-    
-  
+    <div id="timerMenu" class="menu">
+        <button id="closeTimerButton">Close Timer</button>
+        <div id="timerDisplay">00:00:00</div>
+        <button id="startTimerButton">Start Timer</button>
+        <button id="stopTimerButton">Stop Timer</button>
+        <button id="resetTimerButton">Reset Timer</button>
+    </div>
+    <script src="Hackathon.js"></script>
 </body>
 </html>
