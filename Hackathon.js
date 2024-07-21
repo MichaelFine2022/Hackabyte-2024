@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         caloriesContainer.innerText = `Calories burned when walked: ${caloriesBurned.toFixed(2)} calories`;
                     }
 
-                    // Display directions
-                    displayDirections(actions);
+                    //displayDirections(actions);
                 } else {
                     console.error("Container element not found");
                 }
