@@ -1,47 +1,167 @@
+/* Reset margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Basic styling */
 body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            color: #0056b3;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            font-size: 1.2em;
-            display: block;
-            margin-bottom: 10px;
-        }
-        input {
-            font-size: 1.1em;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
-        button {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #003d7a;
-        }
-        #mapContainer {
-            height: 400px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        #container, #directionsContainer {
-            font-size: 1.2em;
-        }
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #0056b3;
+    margin: 0;
+    text-align: center;
+}
+
+/* Header styling */
+header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Navigation bar styling */
+nav.top-nav {
+    position: fixed;
+    top: 50px; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 20px;
+    z-index: 1000; /* Below header but above content */
+}
+
+nav.top-nav button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+nav.top-nav button:hover {
+    background-color: #0056b3;
+}
+
+/* Main content area */
+main {
+    margin-top: 100px; /* Space below header and nav */
+    padding: 20px;
+}
+
+/* Form and input styling */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    font-size: 1.1em;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #003d7a;
+}
+
+/* Map container styling */
+#mapContainer {
+    height: 400px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Container for distance and directions */
+#container, #directionsContainer {
+    font-size: 1.2em;
+}
+
+/* Side menu styling */
+.menu {
+    display: none;
+    position: fixed;
+    top: 50px; 
+    right: 0;
+    width: 250px;
+    height: calc(100% - 60px); 
+    background: #f9f9f9;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.menu.open {
+    display: block;
+}
+
+.menu button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Timer menu specific styling */
+#timerDisplay {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Top menu styles */
+.top-menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.top-menu button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.top-menu button:hover {
+    background-color: #0056b3;
+}
+
+.container, .containerI, .caloriesBurnedContainer {
+    font-size: 64px;
+
+    
+}
