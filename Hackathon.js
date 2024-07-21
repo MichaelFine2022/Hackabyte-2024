@@ -89,15 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Initialize HERE Maps platform
         const platform = new H.service.Platform({
             apikey: apiKey
         });
 
-        // Obtain the default map layers
+
         const defaultLayers = platform.createDefaultLayers();
 
-        // Create a map instance
         const map = new H.Map(
             mapContainer,
             defaultLayers.vector.normal.map,
@@ -108,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         );
 
-        // Enable map events
+
         const mapEvents = new H.mapevents.MapEvents(map);
         const behavior = new H.mapevents.Behavior(mapEvents);
         const ui = H.ui.UI.createDefault(map, defaultLayers);
@@ -138,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Geolocation is not supported by this browser.');
         }
 
-        // Add markers for the addresses
         const marker1 = new H.map.Marker({ lat: coords1[0], lng: coords1[1] });
         const marker2 = new H.map.Marker({ lat: coords2[0], lng: coords2[1] });
         map.addObject(marker1);
@@ -174,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching route:', error);
         });
     }
-
+    
     function displayDirections(actions) {
     const directionsContainer = document.getElementById('directionsContainer');
     if (!directionsContainer) {
@@ -182,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Clear previous directions
+
     directionsContainer.innerHTML = '';
 
     if (Array.isArray(actions) && actions.length > 0) {
@@ -216,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function calculateCaloriesBurned(distanceInFeet, weightInPounds) {
-        const distanceInMiles = distanceInFeet / 5280; // Convert feet to miles
-        const caloriesPerMilePerPound = 0.5; // Average calories burned per pound per mile
+        const distanceInMiles = distanceInFeet / 5280; 
+        const caloriesPerMilePerPound = 0.5; 
         return distanceInMiles * weightInPounds * caloriesPerMilePerPound;
     }
 
