@@ -26,15 +26,15 @@ header {
 }
 
 h1 {
-    font-size: 2.5em; /* Larger font size for better visibility */
+    font-size: 2.5em; 
     color: #0056b3;
     margin: 0;
-    padding-top: 20px; /* Ensure space for visibility */
+    padding-top: 20px; 
 }
 
 nav.top-nav {
     position: fixed;
-    top: 90px; /* Move down to ensure h1 is visible */
+    top: 90px; 
     left: 0;
     width: 100%;
     background-color: #343a40;
@@ -42,8 +42,8 @@ nav.top-nav {
     padding: 15px 20px;
     z-index: 1000;
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    align-items: center; /* Center the buttons vertically */
+    justify-content: center; 
+    align-items: center; 
 }
 
 nav.top-nav button {
@@ -53,8 +53,7 @@ nav.top-nav button {
     padding: 15px;
     margin: 0 10px;
     cursor: pointer;
-    font-size: 1.5em; /* Larger font size for buttons */
-}
+    font-size: 1.5em; 
 
 nav.top-nav button:hover {
     background-color: #0056b3;
@@ -62,7 +61,7 @@ nav.top-nav button:hover {
 
 
 main {
-    margin-top: 170px; /* Space below header and nav */
+    margin-top: 170px;
     padding: 20px;
 }
 
@@ -71,13 +70,13 @@ form {
 }
 
 label {
-    font-size: 1.5em; /* Larger font size for labels */
+    font-size: 1.5em; 
     display: block;
     margin-bottom: 10px;
 }
 
 input {
-    font-size: 1.3em; /* Larger font size for inputs */
+    font-size: 1.3em; 
     padding: 15px;
     width: 100%;
     box-sizing: border-box;
@@ -85,7 +84,7 @@ input {
 }
 
 button {
-    font-size: 1.5em; /* Larger font size for buttons */
+    font-size: 1.5em; 
     padding: 15px 25px;
     background-color: #0056b3;
     color: white;
@@ -100,7 +99,7 @@ button:hover {
 
 
 #mapContainer {
-    height: 500px; /* Increased height for better visibility */
+    height: 500px; 
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -136,7 +135,7 @@ button:hover {
     font-size: 1.5em; 
 }
 
-/* Timer menu specific styling */
+
 #timerDisplay {
     font-size: 3em; 
     text-align: center;
