@@ -16,36 +16,34 @@
     <header>
         <h1>Walk Planner</h1>
     </header>
-    <nav class="top-nav">
-        <button id="toggleDirectionsMenuButton">Directions</button>
-        <button id="toggleTimerButton">Timer</button>
+    <nav class="top-nav" role="navigation">
+        <button id="toggleDirectionsMenuButton" aria-label="Show Statistics Menu"><b>Statistics</b></button>
+        <button id="toggleTimerButton" aria-label="Show Timer Menu"><b>Timer</b></button>
     </nav>
     <main>
         <form id="addressForm">
-            <label for="address1">First Address:</label><br>
-            <input type="text" id="address1" name="address1"><br><br>
-            <label for="address2">Second Address:</label><br>
-            <input type="text" id="address2" name="address2"><br><br>
-            <label for="weight">Your Weight (lbs):</label><br>
-            <input type="number" id="weight" name="weight" min="0"><br><br>
-            <button type="button" id="calculateDistanceButton">Calculate Distance</button>
+            <label for="address1"><b>First Address:</b></label><br>
+            <input type="text" id="address1" name="address1" aria-required="true"><br><br>
+            <label for="address2"><b>Second Address:</b></label><br>
+            <input type="text" id="address2" name="address2" aria-required="true"><br><br>
+            <label for="weight"><b>Your Weight (lbs):</b></label><br>
+            <input type="number" id="weight" name="weight" min="0" aria-required="true"><br><br>
+            <button type="button" id="calculateDistanceButton"><b>Calculate Distance</b></button>
         </form>
-        <div id="mapContainer"></div>
-        <div id="container"><p>Walking distance in meters will be displayed here.</p></div>
-        <div id="containerI"><p>Walking distance in feet will be displayed here.</p></div>
-        <div id="caloriesBurnedContainer"><p>Calories burned will be displayed here.</p></div>
+        <div id="mapContainer" aria-label="Map"></div>
     </main>
-    <div id="sideMenu" class="menu">
-        <button id="closeDirectionsButton">Close Directions</button>
-        <div id="directionsContainer"><ul id="directionsList"></ul></div>
+    <div id="sideMenu" class="menu" aria-labelledby="toggleDirectionsMenuButton">
+        <button id="closeDirectionsButton" aria-label="Close Statistics Menu"><b>Close Statistics</b></button>
+        <div id="container"><p><b>Walking distance in meters will be displayed here.</b></p></div>
+        <div id="containerI"><p><b>Walking distance in feet will be displayed here.</b></p></div>
+        <div id="caloriesBurnedContainer"><p><b>Calories burned will be displayed here.</b></p></div>
     </div>
-
-    <div id="timerMenu" class="menu">
-        <button id="closeTimerButton">Close Timer</button>
-        <div id="timerDisplay">00:00:00</div>
-        <button id="startTimerButton">Start Timer</button>
-        <button id="stopTimerButton">Stop Timer</button>
-        <button id="resetTimerButton">Reset Timer</button>
+    <div id="timerMenu" class="menu" aria-labelledby="toggleTimerButton">
+        <button id="closeTimerButton" aria-label="Close Timer Menu"><b>Close Timer</b></button>
+        <div id="timerDisplay"><b>00:00:00</b></div>
+        <button id="startTimerButton"><b>Start Timer</b></button>
+        <button id="stopTimerButton"><b>Stop Timer</b></button>
+        <button id="resetTimerButton"><b>Reset Timer</b></button>
     </div>
     <script src="Hackathon.js"></script>
 </body>
