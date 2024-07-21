@@ -1,5 +1,4 @@
 const apiKey = 'eoa2vtgM9O5GnX7Nth3H9CruvBRaQeYdzuWp-Dc8JDg';
-//this will be removed in deployment
 document.addEventListener('DOMContentLoaded', function() {
     function addressForm() {
         const address1 = document.getElementById("address1").value;
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (distContainer) {
                     distContainer.innerText = `Walking distance: ${dist} meters`;
                     dist *= 3.281;
-                    dist.toFixed(2);
+                    dist = dist.toFixed(2);
                     distContainerI.innerText = `Walking distance: ${dist} feet`;
                 } else {
                     console.error("Container element not found");
@@ -41,18 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                if (data.routes.length > 0) {
-                    const route = data.routes[0];
+            console.log('Route data:', data); // Log the entire response to debug
+            if (data.routes && data.routes.length > 0) {
+                const route = data.routes[0];
+                if (route.sections && route.sections.length > 0) {
                     const distance = route.sections[0].summary.length;
-                    const polyline = route.sections[0].polyline;
-                    const actions = route.sections[0].actions;
-                    drawRoute(polyline);
-                    displayDirections(actions);
                     return distance;
                 } else {
-                    throw new Error('No routes found');
+                    throw new Error('No sections found in route');
                 }
-            })
+            } else {
+                throw new Error('No routes found');
+            }
+        })
             .catch(error => {
                 console.error('Error fetching route:', error);
                 throw error;
