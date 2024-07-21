@@ -1,4 +1,4 @@
-/* Reset margin and padding */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -6,21 +6,13 @@ body, html {
     line-height: 1.6;
 }
 
-/* Basic styling */
 body {
     background-color: #f4f4f4;
     color: #333;
     padding: 20px;
+    font-size: 18px; 
 }
 
-h1 {
-    font-size: 2em;
-    color: #0056b3;
-    margin: 0;
-    text-align: center;
-}
-
-/* Header styling */
 header {
     background-color: #f8f8f8;
     padding: 10px;
@@ -30,61 +22,71 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
+    text-align: center;
 }
 
-/* Navigation bar styling */
+h1 {
+    font-size: 2.5em; /* Larger font size for better visibility */
+    color: #0056b3;
+    margin: 0;
+    padding-top: 20px; /* Ensure space for visibility */
+}
+
 nav.top-nav {
     position: fixed;
-    top: 50px; /* Adjust based on header height */
+    top: 90px; /* Move down to ensure h1 is visible */
     left: 0;
     width: 100%;
     background-color: #343a40;
     color: #fff;
-    padding: 10px 20px;
-    z-index: 1000; /* Below header but above content */
+    padding: 15px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
 }
 
 nav.top-nav button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px;
-    margin: 0 5px;
+    padding: 15px;
+    margin: 0 10px;
     cursor: pointer;
+    font-size: 1.5em; /* Larger font size for buttons */
 }
 
 nav.top-nav button:hover {
     background-color: #0056b3;
 }
 
-/* Main content area */
+
 main {
-    margin-top: 100px; /* Space below header and nav */
+    margin-top: 170px; /* Space below header and nav */
     padding: 20px;
 }
 
-/* Form and input styling */
 form {
     margin-bottom: 20px;
 }
 
 label {
-    font-size: 1.2em;
+    font-size: 1.5em; /* Larger font size for labels */
     display: block;
     margin-bottom: 10px;
 }
 
 input {
-    font-size: 1.1em;
-    padding: 10px;
+    font-size: 1.3em; /* Larger font size for inputs */
+    padding: 15px;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 20px;
 }
 
 button {
-    font-size: 1.2em;
-    padding: 10px 20px;
+    font-size: 1.5em; /* Larger font size for buttons */
+    padding: 15px 25px;
     background-color: #0056b3;
     color: white;
     border: none;
@@ -96,30 +98,30 @@ button:hover {
     background-color: #003d7a;
 }
 
-/* Map container styling */
+
 #mapContainer {
-    height: 400px;
+    height: 500px; /* Increased height for better visibility */
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Container for distance and directions */
-#container, #directionsContainer {
-    font-size: 1.2em;
+
+#container, #containerI, #caloriesBurnedContainer {
+    font-size: 1.5em; 
 }
 
-/* Side menu styling */
+
 .menu {
     display: none;
     position: fixed;
-    top: 50px; 
+    top: 90px; 
     right: 0;
-    width: 250px;
-    height: calc(100% - 60px); 
+    width: 300px; 
+    height: calc(100% - 100px); 
     background: #f9f9f9;
     border-left: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     z-index: 1000;
 }
@@ -130,38 +132,13 @@ button:hover {
 
 .menu button {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5em; 
 }
 
 /* Timer menu specific styling */
 #timerDisplay {
-    font-size: 24px;
+    font-size: 3em; 
     text-align: center;
-}
-
-/* Top menu styles */
-.top-menu {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.top-menu button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.top-menu button:hover {
-    background-color: #0056b3;
-}
-
-.container, .containerI, .caloriesBurnedContainer {
-    font-size: 64px;
-
-    
+    margin-bottom: 20px;
 }
