@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const actions = route.sections[0].actions.map(action => action.instruction);
                         const polyline = route.sections[0].polyline;
                         drawRoute(polyline);
-                        displayDirections(actions);
+                        //displayDirections(actions);
                         return { distance, actions };
                     } else {
                         throw new Error('No sections found in route');
